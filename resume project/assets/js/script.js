@@ -13,7 +13,7 @@ $(document).ready(function() {
         deleteElement();
       });
       setTimeout(() => {
-        // generateCV();
+        generateCV();
       }, 500);
     },
     isFirstItemUndeletable: true
