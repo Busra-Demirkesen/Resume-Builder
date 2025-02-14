@@ -80,6 +80,8 @@ const getUserInputs = () => {
   // project
 
   let projTitleElem = document.querySelectorAll('.proj_title');
+  let projLinkElem = document.querySelectorAll('.proj_link');
+
 
 
 
