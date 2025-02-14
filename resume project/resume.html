@@ -73,7 +73,7 @@
               <div class="cols-3">
                 <div class="form-elem">
                   <label for="" class="form-label">Your Image</label>
-                  <input name="image" type="file" class="form-control image" id="" accept="image/*" onchange="generateCV()">
+                  <input name="image" type="file" class="form-control image" id="" accept="image/*" onchange="previewImage()">
                 </div>
 
                 <div class="form-elem">
@@ -394,10 +394,10 @@
       <div class="preview-cnt-l bg-green text-white">
          <div class="preview-blk">
           <div class="preview-image">
-            <img  src="" alt="" id="image-dsp">
+            <img  src="" alt="" id="image_dsp">
           </div>
           <div class="preview-item preview-item-name">
-              <span class="preview-item-val fw-6" id="fullname-dsp"></span>
+              <span class="preview-item-val fw-6" id="fullname_dsp"></span>
           </div>
           <div class="preview-item">
             <span class="preview-item-val text-uppercase fw-6 ls-1" id="designation_dsp"></span>
@@ -492,7 +492,7 @@
     integrity="sha512-bZAXvpVfp1+9AUHQzekEZaXclsgSlAeEnMJ6LfFAvjqYUVZfcuVXeQoN5LhD7Uw0Jy4NCY9q3kbdEXbwhZUmUQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="assets/js/script.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js" defer></script>
 </body>
 
 </html>
