@@ -38,7 +38,8 @@ let nameDsp = document.getElementById('fullname_dsp'),
     achievementsDsp = document.getElementById('achievements_dsp'),
     skillsDsp = document.getElementById('skills_dsp'),
     educationsDsp = document.getElementById('educations_dsp'),
-    experiencesDsp = document.getElementById('experiences_dsp');
+    experiencesDsp = document.getElementById('experiences_dsp'),
+    languagesDsp = document.getElementById('languages_dsp');
 
 // first value is for the attributes and second one passes the nodelists
 const fetchValues = (attrs, ...nodeLists) => {
@@ -87,6 +88,7 @@ const getUserInputs = () => {
     projDescriptionElem = document.querySelectorAll('.proj_description');
 
     let skillElem = document.querySelectorAll('.skill');
+    let languagesElem = document.querySelectorAll('.languages');
 
     // event listeners for form validation
     firstnameElem.addEventListener('keyup', (e) => validateFormData(e.target, validType.TEXT, 'First Name'));
@@ -115,6 +117,7 @@ const getUserInputs = () => {
     projLinkElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Link')));
     projDescriptionElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Description')));
     skillElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'skill')));
+    languagesElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'languages')));
     
 
     return {
@@ -130,7 +133,8 @@ const getUserInputs = () => {
         experiences: fetchValues(['exp_title', 'exp_organization', 'exp_location', 'exp_start_date', 'exp_end_date', 'exp_description'], expTitleElem, expOrganizationElem, expLocationElem, expStartDateElem, expEndDateElem, expDescriptionElem),
         educations: fetchValues(['edu_school', 'edu_degree', 'edu_city', 'edu_start_date', 'edu_graduation_date', 'edu_description'], eduSchoolElem, eduDegreeElem, eduCityElem, eduStartDateElem, eduGraduationDateElem, eduDescriptionElem),
         projects: fetchValues(['proj_title', 'proj_link', 'proj_description'], projTitleElem, projLinkElem, projDescriptionElem),
-        skills: fetchValues(['skill'], skillElem)
+        skills: fetchValues(['skill'], skillElem),
+        languages:fetchValues(['languages'], languagesElem)
     }
 };
 
@@ -204,6 +208,7 @@ const displayCV = (userData) => {
     showListData(userData.projects, projectsDsp);
     showListData(userData.achievements, achievementsDsp);
     showListData(userData.skills, skillsDsp);
+    showListData(userData.languages, languagesDsp);
     showListData(userData.educations, educationsDsp);
     showListData(userData.experiences, experiencesDsp);
 }
