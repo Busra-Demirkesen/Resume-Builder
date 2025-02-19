@@ -34,6 +34,7 @@ let nameDsp = document.getElementById('fullname_dsp'),
     addressDsp = document.getElementById('address_dsp'),
     designationDsp = document.getElementById('designation_dsp'),
     summaryDsp = document.getElementById('summary_dsp'),
+
     projectsDsp = document.getElementById('projects_dsp'),
     achievementsDsp = document.getElementById('achievements_dsp'),
     skillsDsp = document.getElementById('skills_dsp'),
@@ -41,7 +42,8 @@ let nameDsp = document.getElementById('fullname_dsp'),
     experiencesDsp = document.getElementById('experiences_dsp'),
     languagesDsp = document.getElementById('languages_dsp');
 
-// first value is for the attributes and second one passes the nodelists
+
+// first valu <e is for the attributes and second one passes the nodelist
 const fetchValues = (attrs, ...nodeLists) => {
     let elemsAttrsCount = nodeLists.length;
     let elemsDataCount = nodeLists[0].length;
@@ -213,12 +215,30 @@ const displayCV = (userData) => {
     showListData(userData.experiences, experiencesDsp);
 }
 
+
+
+
 // generate CV
 const generateCV = () => {
     let userData = getUserInputs();
     displayCV(userData);
     console.log(userData);
 }
+
+
+let formElements = document.querySelectorAll("#cv-form input, #cv-form textarea, #cv-form select");
+
+    formElements.forEach(element => {
+        element.addEventListener("keyup", generateCV);
+        element.addEventListener("change", generateCV); 
+    });
+
+
+// preview image
+
+const imageInput = document.getElementById('image');
+imageInput.addEventListener('change', previewImage);
+
 
 function previewImage(){
     let oFReader = new FileReader();
@@ -229,6 +249,10 @@ function previewImage(){
 }
 
 // print CV
+
+const printBtn = document.querySelector('.print-btn');
+printBtn.addEventListener('click', printCV);
+
 function printCV(){
     window.print();
 }
